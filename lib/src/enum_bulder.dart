@@ -7,9 +7,7 @@ class EnumBuilder extends Line{
 
   @override
   String build() {
-    return "enum ${name} {\n" +
-        values.map((e) => "  $e,\n").join() +
-        "}";
+    return "enum $name {\n${values.map((e) => "  $e,\n").join()}}";
   }
 
 }

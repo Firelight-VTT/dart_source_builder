@@ -8,7 +8,6 @@ class TypeBuilder extends SourceBuilder{
   late String _content;
   final bool nullable;
 
-  TypeBuilder._(): nullable = false;
   TypeBuilder.int({this.nullable = false}) : _content = "int";
   TypeBuilder.string({this.nullable = false}) : _content = "String";
   TypeBuilder.double({this.nullable = false}) : _content = "double";

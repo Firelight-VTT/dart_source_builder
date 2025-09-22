@@ -1,6 +1,7 @@
+import 'package:dart_source_builder/src/internals/indent.dart';
 import 'package:dart_source_builder/src/line.dart';
 import 'package:dart_source_builder/src/literal.dart';
-import 'package:dart_source_builder/src/internals/base_statement.dart';
+import 'package:dart_source_builder/src/base_statement.dart';
 import 'package:dart_source_builder/src/internals/source_builder.dart';
 
 class Switch extends Line{
@@ -36,15 +37,20 @@ class SwitchCase extends SourceBuilder{
 
   @override
   String build() {
+    final indent = Indent();
+    
     final buffer = StringBuffer();
 
+    buffer.write(indent);
     buffer.write("case ");
     buffer.write(caseExpression.build());
     buffer.write(":\n");
 
-    for (final line in lines) {
-      buffer.write(line.build());
-    }
+    indent.indent(() {
+      for (final line in lines) {
+        buffer.write("  $line");
+      }
+    });
 
     return buffer.toString();
   }

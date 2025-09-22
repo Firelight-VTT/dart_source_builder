@@ -1,7 +1,6 @@
 import 'package:dart_source_builder/src/line.dart';
 import 'package:dart_source_builder/src/literal.dart';
-import 'package:dart_source_builder/src/internals/source_builder.dart';
-import 'package:dart_source_builder/src/internals/base_statement.dart';
+import 'package:dart_source_builder/src/base_statement.dart';
 import 'package:dart_source_builder/src/type_builder.dart';
 
 class Initialization extends Line {
@@ -24,7 +23,7 @@ class Initialization extends Line {
 
   @override
   String build() {
-    return "${isStatic ? 'static ' : ''}${isLate ? 'late ' : ''}${isFinal ? 'final ' : ''}${"$type " ?? 'var '}$targetName${rhs != null ? ' = $rhs' : ''};\n";
+    return "${isStatic ? 'static ' : ''}${isLate ? 'late ' : ''}${isFinal ? 'final ' : ''}${"$type "}$targetName${rhs != null ? ' = $rhs' : ''};\n";
   }
 
 }

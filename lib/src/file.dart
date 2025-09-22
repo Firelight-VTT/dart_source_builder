@@ -1,5 +1,3 @@
-import 'package:dart_source_builder/src/export.dart';
-import 'package:dart_source_builder/src/import.dart';
 import 'package:dart_source_builder/src/line.dart';
 import 'package:dart_source_builder/src/internals/source_builder.dart';
 
@@ -13,7 +11,7 @@ class File extends SourceBuilder{
     StringBuffer string = StringBuffer();
 
     for (var line in lines) {
-      string.write("${line.build()}");
+      string.write(line.build());
     }
 
     return string.toString();

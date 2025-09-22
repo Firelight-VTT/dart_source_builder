@@ -13,7 +13,6 @@ import 'package:dart_source_builder/src/if.dart';
 import 'package:dart_source_builder/src/import.dart';
 import 'package:dart_source_builder/src/line.dart';
 import 'package:dart_source_builder/src/literal.dart';
-import 'package:dart_source_builder/src/named_parameter_definition.dart';
 import 'package:dart_source_builder/src/string_builder.dart';
 import 'package:dart_source_builder/src/type_builder.dart';
 import 'package:flutter_test/flutter_test.dart';

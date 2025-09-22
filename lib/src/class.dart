@@ -1,7 +1,7 @@
 import 'package:dart_source_builder/src/generic_parameters_definition.dart';
+import 'package:dart_source_builder/src/internals/indent.dart';
 import 'package:dart_source_builder/src/line.dart';
 import 'package:dart_source_builder/src/literal.dart';
-import 'package:dart_source_builder/src/internals/source_builder.dart';
 import 'package:dart_source_builder/src/type_builder.dart';
 
 class Class extends Line{
@@ -28,7 +28,11 @@ class Class extends Line{
 
   @override
   String build() {
+    var indent = Indent();
     StringBuffer string = StringBuffer();
+
+    string.write(indent);
+
     if (isAbstract) {
       string.write("abstract ");
     }
@@ -46,11 +50,13 @@ class Class extends Line{
     }
     string.writeln(" {");
 
-    for (var line in lines) {
-      string.writeln("  $line");
-    }
+    indent.indent(() {
+      for (var line in lines) {
+        string.write("  $line");
+      }
+    });
 
-    string.writeln("}");
+    string.writeln("$indent}");
 
     return string.toString();
   }

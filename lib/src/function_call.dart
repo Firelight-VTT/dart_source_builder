@@ -1,7 +1,6 @@
 import 'package:dart_source_builder/src/function_named_argument.dart';
 import 'package:dart_source_builder/src/generic_parameters_definition.dart';
-import 'package:dart_source_builder/src/internals/source_builder.dart';
-import 'package:dart_source_builder/src/internals/base_statement.dart';
+import 'package:dart_source_builder/src/base_statement.dart';
 
 class FunctionCall extends BaseStatement {
   BaseStatement? targetObject;

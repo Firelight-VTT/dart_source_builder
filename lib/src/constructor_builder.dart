@@ -2,7 +2,6 @@
 
 import 'package:dart_source_builder/src/assignment.dart';
 import 'package:dart_source_builder/src/literal.dart';
-import 'package:dart_source_builder/src/internals/base_statement.dart';
 import 'package:dart_source_builder/src/generic_parameters_definition.dart';
 import 'package:dart_source_builder/src/line.dart';
 import 'package:dart_source_builder/src/named_parameter_definition.dart';
@@ -35,7 +34,7 @@ class ConstructorBuilder extends Line {
   @override
   String build() {
     StringBuffer string = StringBuffer();
-    string.write("$name");
+    string.write(name);
 
     // doing generic parameters
     if (genericParameters != null) {

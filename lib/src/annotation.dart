@@ -1,7 +1,8 @@
 import 'package:dart_source_builder/src/function_named_argument.dart';
+import 'package:dart_source_builder/src/internals/indent.dart';
 import 'package:dart_source_builder/src/line.dart';
 import 'package:dart_source_builder/src/literal.dart';
-import 'package:dart_source_builder/src/internals/base_statement.dart';
+import 'package:dart_source_builder/src/base_statement.dart';
 
 class Annotation extends Line {
   String name;
@@ -18,8 +19,10 @@ class Annotation extends Line {
   
   @override
   String build() {
+    Indent indent = Indent();
     final buffer = StringBuffer();
 
+    buffer.write(indent);
     buffer.write("@$name");
 
     if (positionalArguments.isEmpty && namedArguments.isEmpty && forceParens == false) {

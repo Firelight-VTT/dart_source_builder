@@ -1,14 +1,11 @@
 
 
 import 'package:dart_source_builder/src/anon_positional_parameter_definition.dart';
-import 'package:dart_source_builder/src/internals/base_statement.dart';
+import 'package:dart_source_builder/src/base_statement.dart';
 import 'package:dart_source_builder/src/generic_parameters_definition.dart';
 import 'package:dart_source_builder/src/line.dart';
 import 'package:dart_source_builder/src/named_parameter_definition.dart';
 import 'package:dart_source_builder/src/optional_positional_parameter_definition.dart';
-import 'package:dart_source_builder/src/positional_parameter_definition.dart';
-import 'package:dart_source_builder/src/internals/source_builder.dart';
-import 'package:dart_source_builder/src/type_builder.dart';
 
 
 class AnonFunctionDefinition extends BaseStatement {

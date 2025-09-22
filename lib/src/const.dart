@@ -1,5 +1,4 @@
-import 'package:dart_source_builder/src/internals/base_statement.dart';
-import 'package:dart_source_builder/src/literal.dart';
+import 'package:dart_source_builder/src/base_statement.dart';
 
 class Const  extends BaseStatement{
   BaseStatement inner;

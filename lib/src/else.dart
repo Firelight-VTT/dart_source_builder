@@ -1,5 +1,4 @@
 import 'package:dart_source_builder/src/line.dart';
-import 'package:dart_source_builder/src/internals/source_builder.dart';
 import 'package:dart_source_builder/src/literal.dart';
 
 class Else extends Line{

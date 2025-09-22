@@ -1,10 +1,17 @@
 class Indent {
   int level = 0;
-  final int spacesPerLevel;
+  int spacesPerLevel=2;
 
-  Indent({this.spacesPerLevel = 2});
+  Indent._internal();
 
-  String get currentIndent => ' ' * (level * spacesPerLevel);
+  static final Indent _instance = Indent._internal();
+
+  factory Indent() {
+    return _instance;
+  }
+
+
+
 
   void indent(void Function() action) {
     level++;

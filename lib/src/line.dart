@@ -1,3 +1,4 @@
+import 'package:dart_source_builder/src/internals/indent.dart';
 import 'package:dart_source_builder/src/internals/source_builder.dart';
 
 class Line extends SourceBuilder {
@@ -7,6 +8,7 @@ class Line extends SourceBuilder {
 
   @override
   String build() {
-    return "$content;\n";
+    final indent = Indent();
+    return "$indent$content;\n";
   }
 }
