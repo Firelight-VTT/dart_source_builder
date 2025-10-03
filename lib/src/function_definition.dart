@@ -1,4 +1,5 @@
 import 'package:dart_source_builder/src/generic_parameters_definition.dart';
+import 'package:dart_source_builder/src/internals/indent.dart';
 import 'package:dart_source_builder/src/line.dart';
 import 'package:dart_source_builder/src/named_parameter_definition.dart';
 import 'package:dart_source_builder/src/optional_positional_parameter_definition.dart';
@@ -30,8 +31,9 @@ class FunctionDefinition extends Line {
   
   @override
   String build() {
+    final indent = Indent();
     StringBuffer string = StringBuffer();
-    string.write("${returnType ?? 'void'} ");
+    string.write("$indent${returnType ?? 'void'} ");
     string.write(" $name");
 
     // doing generic parameters
@@ -61,11 +63,13 @@ class FunctionDefinition extends Line {
     }
     string.writeln(" {\n");
 
-    for (var line in lines) {
-      string.writeln("  $line");
-    }
+    indent.indent(() {
+      for (var line in lines) {
+        string.writeln("  $line");
+      }
+    });
 
-    string.writeln("}");
+    string.writeln("$indent}");
 
     return string.toString();
   }

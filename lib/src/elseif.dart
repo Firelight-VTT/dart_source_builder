@@ -1,4 +1,5 @@
 import 'package:dart_source_builder/src/base_statement.dart';
+import 'package:dart_source_builder/src/internals/indent.dart';
 import 'package:dart_source_builder/src/line.dart';
 import 'package:dart_source_builder/src/literal.dart';
 
@@ -11,16 +12,19 @@ class ElseIf extends Line{
 
   @override
   String build() {
+    final indent = Indent();
     StringBuffer string = StringBuffer();
     if (singleLine != null){
-      string.write("else if ($condition)");
+      string.write("${indent}else if ($condition)");
       string.write("  $singleLine");
     }else{
-      string.write("else if ($condition) {\n");
-      for (var line in lines) {
-        string.write("  $line");
-      }
-      string.write("}");
+      string.write("${indent}else if ($condition) {\n");
+      indent.indent(() {
+        for (var line in lines) {
+          string.write("$line");
+        }
+      });
+      string.write("}\n");
     }
     return string.toString();
   }

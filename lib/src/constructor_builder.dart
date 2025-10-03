@@ -1,6 +1,7 @@
 
 
 import 'package:dart_source_builder/src/assignment.dart';
+import 'package:dart_source_builder/src/internals/indent.dart';
 import 'package:dart_source_builder/src/literal.dart';
 import 'package:dart_source_builder/src/generic_parameters_definition.dart';
 import 'package:dart_source_builder/src/line.dart';
@@ -33,7 +34,11 @@ class ConstructorBuilder extends Line {
 
   @override
   String build() {
+    final indent = Indent();
     StringBuffer string = StringBuffer();
+
+    string.write(indent);
+
     string.write(name);
 
     // doing generic parameters
@@ -73,16 +78,18 @@ class ConstructorBuilder extends Line {
     }
 
     if (lines.isEmpty) {
-      string.write(";");
+      string.write(";\n");
       return string.toString();
     }else{
       string.writeln(" {\n");
+      indent.indent(() {
+        for (var line in lines) {
+          string.writeln("$line");
+        }
 
-      for (var line in lines) {
-        string.writeln("  $line");
-      }
+      });
 
-      string.writeln("}");
+      string.writeln("$indent}\n");
 
     }
 

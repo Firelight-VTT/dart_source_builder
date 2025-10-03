@@ -2,6 +2,8 @@ class Indent {
   int level = 0;
   int spacesPerLevel=2;
 
+  int get currentIndent => level;
+
   Indent._internal();
 
   static final Indent _instance = Indent._internal();
@@ -25,7 +27,7 @@ class Indent {
 
   @override
   String toString() {
-    String singleIndent = '' * spacesPerLevel;
+    String singleIndent = ' ' * spacesPerLevel;
     return singleIndent * level;
   }
 }

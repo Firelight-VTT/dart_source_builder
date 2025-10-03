@@ -12,17 +12,21 @@ class Switch extends Line{
 
   @override
   String build() {
+    final indent = Indent();
     final buffer = StringBuffer();
 
-    buffer.write("switch (");
+    buffer.write("${indent}switch (");
     buffer.write(expression.build());
     buffer.write(") {\n");
 
-    for (final switchCase in cases) {
-      buffer.write(switchCase.build());
-    }
+    indent.indent(() {
+      for (final switchCase in cases) {
+        buffer.write(switchCase.build());
+      }
+    });
+    
 
-    buffer.write("}\n");
+    buffer.write("$indent}\n");
 
     return buffer.toString();
   }
@@ -48,7 +52,7 @@ class SwitchCase extends SourceBuilder{
 
     indent.indent(() {
       for (final line in lines) {
-        buffer.write("  $line");
+        buffer.write("$line");
       }
     });
 

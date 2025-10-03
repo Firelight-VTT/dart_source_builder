@@ -54,5 +54,6 @@ export 'package:dart_source_builder/src/static.dart';
 export 'package:dart_source_builder/src/await.dart';
 export 'package:dart_source_builder/src/substitution.dart';
 export 'package:dart_source_builder/src/base_statement.dart';
-export 'package:dart_source_builder/src/enum_bulder.dart';
+export 'package:dart_source_builder/src/enum_builder.dart';
 export 'package:dart_source_builder/src/comment_line.dart';
+export 'package:dart_source_builder/src/empty_line.dart';

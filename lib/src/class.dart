@@ -52,7 +52,7 @@ class Class extends Line{
 
     indent.indent(() {
       for (var line in lines) {
-        string.write("  $line");
+        string.write("$line");
       }
     });
 
