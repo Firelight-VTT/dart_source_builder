@@ -23,7 +23,7 @@ class Getter extends Line {
 
     buffer.write(indent);
     buffer.write(type.build());
-    buffer.write(" get $name");
+    buffer.write("get $name");
 
     if (singleLineContent != null) {
       buffer.write(" => ${singleLineContent!.build()};\n");

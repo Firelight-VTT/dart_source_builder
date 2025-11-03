@@ -23,7 +23,7 @@ class Setter extends Line {
 
     buffer.write(indent);
     //buffer.write(type.build());
-    buffer.write(" set $name(${type.build()} value) ");
+    buffer.write("set $name(${type.build()} value) ");
 
     if (singleLineContent != null) {
       buffer.write(" => ${singleLineContent!.build()};\n");
