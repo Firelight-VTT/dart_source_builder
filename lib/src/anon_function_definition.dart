@@ -13,7 +13,8 @@ class AnonFunctionDefinition extends BaseStatement {
   List<AnonPositionalParameterDefinition> parameters;
   List<OptionalPositionalParameterDefinition> optionalParameters;
   List<NamedParameterDefinition> namedParameters;
-  List<Line> lines;
+  List<Line>? lines;
+  BaseStatement? singleLine;
   bool isAsync;
 
 
@@ -23,6 +24,24 @@ class AnonFunctionDefinition extends BaseStatement {
     this.optionalParameters = const [],
     this.namedParameters = const [],
     this.lines = const [],
+    this.isAsync = false,
+  });
+
+  AnonFunctionDefinition.multiLine({
+    this.genericParameters,
+    this.parameters = const [],
+    this.optionalParameters = const [],
+    this.namedParameters = const [],
+    this.lines = const [],
+    this.isAsync = false,
+  });
+
+  AnonFunctionDefinition.singleLine({
+    this.genericParameters,
+    this.parameters = const [],
+    this.optionalParameters = const [],
+    this.namedParameters = const [],
+    required this.singleLine,
     this.isAsync = false,
   });
   
@@ -56,12 +75,12 @@ class AnonFunctionDefinition extends BaseStatement {
       string.write(" async");
     }
 
-    if (lines.length == 1){
-      string.write(" => ${lines.first.content}");
+    if (singleLine != null){
+      string.write(" => $singleLine");
     }else{
       string.writeln(" {\n");
 
-      for (var line in lines) {
+      for (var line in lines!) {
         string.writeln("  $line");
       }
 
