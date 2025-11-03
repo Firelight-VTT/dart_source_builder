@@ -46,7 +46,7 @@ class SwitchCase extends SourceBuilder{
     final buffer = StringBuffer();
 
     buffer.write(indent);
-    buffer.write("case ");
+    buffer.write("${indent}case ");
     buffer.write(caseExpression.build());
     buffer.write(":\n");
 
