@@ -26,7 +26,7 @@ class Setter extends Line {
     buffer.write(" set $name(${type.build()} value) ");
 
     if (singleLineContent != null) {
-      buffer.write(" => ${singleLineContent!.build()};");
+      buffer.write(" => ${singleLineContent!.build()};\n");
 
     }else{
       buffer.write("{\n");
