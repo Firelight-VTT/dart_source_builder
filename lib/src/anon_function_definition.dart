@@ -3,6 +3,7 @@
 import 'package:dart_source_builder/src/anon_positional_parameter_definition.dart';
 import 'package:dart_source_builder/src/base_statement.dart';
 import 'package:dart_source_builder/src/generic_parameters_definition.dart';
+import 'package:dart_source_builder/src/internals/indent.dart';
 import 'package:dart_source_builder/src/line.dart';
 import 'package:dart_source_builder/src/named_parameter_definition.dart';
 import 'package:dart_source_builder/src/optional_positional_parameter_definition.dart';
@@ -47,6 +48,7 @@ class AnonFunctionDefinition extends BaseStatement {
   
   @override
   String build() {
+    Indent indent = Indent();
     StringBuffer string = StringBuffer();
 
     // doing generic parameters
@@ -80,11 +82,13 @@ class AnonFunctionDefinition extends BaseStatement {
     }else{
       string.writeln(" {\n");
 
-      for (var line in lines!) {
-        string.writeln("  $line");
-      }
+      indent.indent(() {
+        for (var line in lines!) {
+          string.writeln("$line");
+        }
+      });
 
-      string.writeln("}");
+      string.writeln("$indent}\n");
     }
 
     
