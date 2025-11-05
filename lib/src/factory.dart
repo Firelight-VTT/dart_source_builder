@@ -1,7 +1,7 @@
 import 'package:dart_source_builder/dart_source_builder.dart';
 
 class Factory extends Line {
-  String functionName;
+  String? functionName;
   GenericParametersDefinition? genericParameters;
   List<PositionalParameterDefinition> parameters;
   List<OptionalPositionalParameterDefinition> optionalParameters;
@@ -10,7 +10,7 @@ class Factory extends Line {
   String className;
 
   Factory({
-    required this.functionName,
+    this.functionName,
     this.genericParameters,
     this.parameters = const [],
     this.optionalParameters = const [],
@@ -25,7 +25,10 @@ class Factory extends Line {
 
     buffer.write("factory ");
 
-    buffer.write("$className.$functionName");
+    buffer.write(className);
+    if (functionName != null) {
+      buffer.write(".$functionName");
+    }
 
     // Generic parameters
     if (genericParameters != null) {
