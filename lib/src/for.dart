@@ -1,3 +1,4 @@
+import 'package:dart_source_builder/src/internals/indent.dart';
 import 'package:dart_source_builder/src/line.dart';
 import 'package:dart_source_builder/src/literal.dart';
 import 'package:dart_source_builder/src/type_builder.dart';
@@ -17,12 +18,16 @@ class For extends Line {
 
   @override
   String build() {
+    Indent indent = Indent();
     StringBuffer string = StringBuffer();
-    string.write("for ($paramsContents) {\n");
-    for (var line in lines) {
-      string.write("  ${line.build()}");
-    }
-    string.write("}");
+    string.write("${indent}for ($paramsContents) {\n");
+    indent.indent((){
+      for (var line in lines) {
+        string.write(line.build());
+      }
+
+    });
+    string.write("$indent}");
     return string.toString();
   }
 }
