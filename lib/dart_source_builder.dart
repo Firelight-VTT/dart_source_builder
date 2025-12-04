@@ -35,6 +35,7 @@ export 'package:dart_source_builder/src/library.dart';
 export 'package:dart_source_builder/src/line.dart';
 export 'package:dart_source_builder/src/literal.dart';
 export 'package:dart_source_builder/src/map_builder.dart';
+export 'package:dart_source_builder/src/list_builder.dart';
 export 'package:dart_source_builder/src/named_parameter_definition.dart';
 export 'package:dart_source_builder/src/negation.dart';
 export 'package:dart_source_builder/src/operator_overload.dart';
