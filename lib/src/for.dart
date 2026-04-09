@@ -3,14 +3,19 @@ import 'package:dart_source_builder/src/line.dart';
 import 'package:dart_source_builder/src/literal.dart';
 import 'package:dart_source_builder/src/type_builder.dart';
 
+/// Builds either a classic `for` loop or a `for-in` loop.
 class For extends Line {
   final List<Line> lines;
   late String paramsContents;
 
+  /// Creates a classic `for` loop from [initialization], [condition], [update],
+  /// and body [lines].
   For({required Literal initialization, required Literal condition, required Literal update, required this.lines}) : super(Literal("")) {
     paramsContents = "${initialization.build()}; ${condition.build()}; ${update.build()}";
   }
 
+  /// Creates a `for-in` loop over [iterable] with loop variable
+  /// [variableName] of [type], and body [lines].
   For.each({required TypeBuilder type, required String variableName, required Literal iterable, required this.lines}) : super(Literal("")) {
     paramsContents = "${type.build()} $variableName in ${iterable.build()}";
   }

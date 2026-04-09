@@ -2,10 +2,12 @@ import 'package:dart_source_builder/src/internals/indent.dart';
 import 'package:dart_source_builder/src/line.dart';
 import 'package:dart_source_builder/src/literal.dart';
 
+/// Builds an `else` branch with either single-line or block body output.
 class Else extends Line{
   List<Line> lines;
   Line? singleLine;
 
+  /// Creates a [Else] using `lines` and `singleLine`.
   Else({required this.lines, this.singleLine}): super(Literal(""));
 
   @override

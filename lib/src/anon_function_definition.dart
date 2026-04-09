@@ -9,6 +9,7 @@ import 'package:dart_source_builder/src/named_parameter_definition.dart';
 import 'package:dart_source_builder/src/optional_positional_parameter_definition.dart';
 
 
+/// Builds an anonymous function expression with positional, optional, and named parameters.
 class AnonFunctionDefinition extends BaseStatement {
   GenericParametersDefinition? genericParameters;
   List<AnonPositionalParameterDefinition> parameters;
@@ -19,6 +20,9 @@ class AnonFunctionDefinition extends BaseStatement {
   bool isAsync;
 
 
+  /// Creates an anonymous function with optional [genericParameters], required
+  /// [parameters], optional [optionalParameters], optional [namedParameters],
+  /// optional block [lines], and [isAsync] control.
   AnonFunctionDefinition({
     this.genericParameters,
     this.parameters = const [],
@@ -28,6 +32,9 @@ class AnonFunctionDefinition extends BaseStatement {
     this.isAsync = false,
   });
 
+  /// Creates a multi-line anonymous function using [genericParameters],
+  /// [parameters], [optionalParameters], [namedParameters], body [lines], and
+  /// optional [isAsync].
   AnonFunctionDefinition.multiLine({
     this.genericParameters,
     this.parameters = const [],
@@ -37,6 +44,9 @@ class AnonFunctionDefinition extends BaseStatement {
     this.isAsync = false,
   });
 
+  /// Creates a single-line anonymous function using [genericParameters],
+  /// [parameters], [optionalParameters], [namedParameters], expression
+  /// [singleLine], and optional [isAsync].
   AnonFunctionDefinition.singleLine({
     this.genericParameters,
     this.parameters = const [],

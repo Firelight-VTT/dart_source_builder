@@ -10,6 +10,7 @@ import 'package:dart_source_builder/src/optional_positional_parameter_definition
 import 'package:dart_source_builder/src/positional_parameter_definition.dart';
 import 'package:dart_source_builder/src/super_call.dart';
 
+/// Builds a constructor declaration with parameters, initializer list, and optional body.
 class ConstructorBuilder extends Line {
   String name;
   GenericParametersDefinition? genericParameters;
@@ -21,6 +22,9 @@ class ConstructorBuilder extends Line {
   List<Assignment> postInitializations;
 
 
+  /// Creates a constructor named [name] with optional [genericParameters],
+  /// positional [parameters], [optionalParameters], [namedParameters], body
+  /// [lines], optional [superCall], and initializer [postInitializations].
   ConstructorBuilder({
     required this.name,
     this.genericParameters,

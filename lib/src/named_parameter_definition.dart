@@ -1,6 +1,7 @@
 import 'package:dart_source_builder/src/internals/source_builder.dart';
 import 'package:dart_source_builder/src/type_builder.dart';
 
+/// Defines a named parameter, including `required`, default value, and forwarding forms.
 class NamedParameterDefinition extends SourceBuilder {
   final String name;
   final TypeBuilder? type;
@@ -9,6 +10,9 @@ class NamedParameterDefinition extends SourceBuilder {
   final bool isThis;
   final bool isSuper;
 
+  /// Creates a named parameter [name] with optional [type], optional
+  /// [defaultValue], and flags [required], [isThis], and [isSuper] for
+  /// forwarding-style parameter generation.
   NamedParameterDefinition({
     required this.name,
     this.type,

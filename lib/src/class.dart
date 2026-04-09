@@ -5,6 +5,7 @@ import 'package:dart_source_builder/src/line.dart';
 import 'package:dart_source_builder/src/literal.dart';
 import 'package:dart_source_builder/src/type_builder.dart';
 
+/// Builds a class declaration with optional imports, generics, inheritance, and members.
 class Class extends Line{
   String name;
   GenericParametersDefinition? genericParameters;
@@ -16,6 +17,9 @@ class Class extends Line{
   int spacingBetweenLines;
 
 
+  /// Creates a class declaration with [name], optional [superClass], optional
+  /// [genericParameters], optional [mixins], [isAbstract], member [lines],
+  /// extra file [imports], and [spacingBetweenLines] between members.
   Class({
     required this.name,
     this.superClass,

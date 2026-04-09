@@ -2,6 +2,7 @@ import 'package:dart_source_builder/src/line.dart';
 import 'package:dart_source_builder/src/literal.dart';
 import 'package:dart_source_builder/src/type_builder.dart';
 
+/// Builds an operator overload method body for a class.
 class OperatorOverload extends Line {
   final String operator;
   final TypeBuilder returnType;
@@ -9,6 +10,9 @@ class OperatorOverload extends Line {
   final String? argumentName;
   final List<Line> lines;
 
+  /// Creates an operator overload for [operator] with [returnType], optional
+  /// single-argument signature ([argumentType] and [argumentName]), and body
+  /// [lines].
   OperatorOverload({
     required this.operator,
     required this.returnType,

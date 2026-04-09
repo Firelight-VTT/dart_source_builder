@@ -3,11 +3,13 @@ import 'package:dart_source_builder/src/internals/indent.dart';
 import 'package:dart_source_builder/src/line.dart';
 import 'package:dart_source_builder/src/literal.dart';
 
+/// Builds an `if` branch with either single-line or block body output.
 class If extends Line{
   BaseStatement condition;
   List<Line> lines;
   Line? singleLine;
 
+  /// Creates a [If] using `condition`, `singleLine`, and `lines`.
   If({required this.condition, this.singleLine, this.lines=const []}): super(Literal(""));
 
   @override

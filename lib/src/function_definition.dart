@@ -7,6 +7,7 @@ import 'package:dart_source_builder/src/positional_parameter_definition.dart';
 import 'package:dart_source_builder/src/literal.dart';
 import 'package:dart_source_builder/src/type_builder.dart';
 
+/// Builds a named function declaration with parameters, return type, and body.
 class FunctionDefinition extends Line {
   String name;
   TypeBuilder? returnType;
@@ -18,6 +19,9 @@ class FunctionDefinition extends Line {
   bool isAsync;
 
 
+  /// Creates a named function [name] with optional [returnType], optional
+  /// [genericParameters], positional [parameters], [optionalParameters],
+  /// [namedParameters], body [lines], and [isAsync] behavior.
   FunctionDefinition({
     required this.name,
     this.returnType,

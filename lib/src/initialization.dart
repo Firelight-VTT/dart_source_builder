@@ -4,6 +4,7 @@ import 'package:dart_source_builder/src/literal.dart';
 import 'package:dart_source_builder/src/base_statement.dart';
 import 'package:dart_source_builder/src/type_builder.dart';
 
+/// Builds a variable declaration with modifiers, optional type, and optional initializer.
 class Initialization extends Line {
   bool isLate = false;
   bool isFinal = false;
@@ -13,6 +14,9 @@ class Initialization extends Line {
   BaseStatement? rhs;
 
 
+  /// Creates a variable declaration for [targetName] with optional modifiers
+  /// [isStatic], [isLate], and [isFinal], optional type [type], and optional
+  /// initializer expression [rhs].
   Initialization({
     this.isStatic = false,
     this.isLate = false,

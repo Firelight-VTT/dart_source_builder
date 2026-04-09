@@ -4,10 +4,12 @@ import 'package:dart_source_builder/src/literal.dart';
 import 'package:dart_source_builder/src/base_statement.dart';
 import 'package:dart_source_builder/src/internals/source_builder.dart';
 
+/// Builds a `switch` statement with one or more cases.
 class Switch extends Line{
   BaseStatement expression;
   List<SwitchCase> cases;
 
+  /// Creates a [Switch] using `expression` and `cases`.
   Switch({required this.expression, required this.cases}): super(Literal(""));
 
   @override
@@ -33,10 +35,12 @@ class Switch extends Line{
 
 }
 
+/// Represents an individual `case` section within a [Switch] statement.
 class SwitchCase extends SourceBuilder{
   BaseStatement caseExpression;
   List<Line> lines;
 
+  /// Creates a [SwitchCase] using `caseExpression` and `lines`.
   SwitchCase({required this.caseExpression, this.lines = const []});
 
   @override

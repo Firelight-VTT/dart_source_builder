@@ -2,6 +2,7 @@ import 'package:dart_source_builder/src/function_named_argument.dart';
 import 'package:dart_source_builder/src/generic_parameters_definition.dart';
 import 'package:dart_source_builder/src/base_statement.dart';
 
+/// Emits a function or method invocation with positional, named, and generic arguments.
 class FunctionCall extends BaseStatement {
   BaseStatement? targetObject;
   String functionName;
@@ -10,6 +11,10 @@ class FunctionCall extends BaseStatement {
   GenericParametersDefinition? genericParametersDefinition;
   bool targetObjectMayBeNull = false;
 
+  /// Creates a function or method call with [functionName], optional receiver
+  /// [targetObject], null-aware receiver flag [targetObjectMayBeNull],
+  /// positional [positionalArguments], optional [namedArguments], and optional
+  /// [genericParametersDefinition].
   FunctionCall({
     this.targetObject,
     this.targetObjectMayBeNull = false,

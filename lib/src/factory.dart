@@ -1,5 +1,6 @@
 import 'package:dart_source_builder/dart_source_builder.dart';
 
+/// Builds a factory constructor declaration for a class.
 class Factory extends Line {
   String? functionName;
   GenericParametersDefinition? genericParameters;
@@ -9,6 +10,9 @@ class Factory extends Line {
   List<Line> lines;
   String className;
 
+  /// Creates a factory constructor for [className] with optional named
+  /// [functionName], optional [genericParameters], positional [parameters],
+  /// [optionalParameters], [namedParameters], and implementation [lines].
   Factory({
     this.functionName,
     this.genericParameters,

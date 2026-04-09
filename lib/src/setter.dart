@@ -4,16 +4,20 @@ import 'package:dart_source_builder/src/line.dart';
 import 'package:dart_source_builder/src/literal.dart';
 import 'package:dart_source_builder/src/type_builder.dart';
 
+/// Builds a setter declaration in either expression-body or block-body form.
 class Setter extends Line {
   TypeBuilder type;
   String name;
   List<Line>? lines;
   BaseStatement? singleLineContent;
 
+  /// Creates a [Setter] using `type`, `name`, and `lines`.
   Setter({required this.type, required this.name, this.lines = const []}) : super(Literal(""));
 
+  /// Creates a [Setter] via [Setter.singleLine] using `type`, `name`, and `singleLineContent` for single-line output.
   Setter.singleLine({required this.type, required this.name, required this.singleLineContent}) : super(Literal(""));
 
+  /// Creates a [Setter] via [Setter.multiLine] using `type`, `name`, and `lines` for multi-line output.
   Setter.multiLine({required this.type, required this.name, this.lines = const []}) : super(Literal(""));
 
   @override

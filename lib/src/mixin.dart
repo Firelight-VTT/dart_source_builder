@@ -3,6 +3,7 @@ import 'package:dart_source_builder/src/line.dart';
 import 'package:dart_source_builder/src/literal.dart';
 import 'package:dart_source_builder/src/type_builder.dart';
 
+/// Builds a mixin declaration with optional type constraints and members.
 class Mixin extends Line{
   String name;
   GenericParametersDefinition? genericParameters;
@@ -10,6 +11,8 @@ class Mixin extends Line{
   List<Line> lines;
 
 
+  /// Creates a mixin named [name] with optional constraint [superClass],
+  /// optional [genericParameters], and member [lines].
   Mixin({
     required this.name,
     this.superClass,

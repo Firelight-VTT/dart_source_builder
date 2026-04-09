@@ -3,9 +3,11 @@ import 'package:dart_source_builder/src/internals/indent.dart';
 import 'package:dart_source_builder/src/line.dart';
 import 'package:dart_source_builder/src/literal.dart';
 
+/// Emits a `return` statement line.
 class Return extends Line {
   final BaseStatement returnedStatement;
 
+  /// Creates a [Return] using `returnedStatement`.
   Return(this.returnedStatement): super(Literal(""));
 
 

@@ -4,12 +4,14 @@ import 'package:dart_source_builder/src/line.dart';
 import 'package:dart_source_builder/src/literal.dart';
 import 'package:dart_source_builder/src/base_statement.dart';
 
+/// Emits a Dart metadata annotation like `@sealed` or `@JsonKey(name: ...)`.
 class Annotation extends Line {
   String name;
   List<BaseStatement> positionalArguments;
   List<FunctionNamedArgument> namedArguments;
   bool forceParens;
 
+  /// Creates an [Annotation] using the annotation name, arguments, and parens policy.
   Annotation({
     required this.name,
     this.positionalArguments = const [],
